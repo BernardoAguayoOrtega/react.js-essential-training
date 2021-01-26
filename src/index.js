@@ -1,12 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import App from './App'
 
 const daysOfWeek = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
 
 ReactDOM.render(
-  <ul>
-    {daysOfWeek.map(day => <li>{day}</li>)}
-  </ul>,
+  <App />,
   document.getElementById('root')
 );
