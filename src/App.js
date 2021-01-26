@@ -1,37 +1,45 @@
 import './App.css';
 
-function Header() {
+function Header(props) {
 
   return(
     <header>
-      <h1>Bernardo Aguayo</h1>
+      <h1>{props.name}'s blog</h1>
     </header>
   )
 }
 
-function Content() {
+function Content(props) {
 
   return(
     <section>
-      <p>We serve the most delicious food around.</p>
+      <p>We serve the most {props.adjective} food around.</p>
+      <ul style={{textAlign: "left"}}>
+        {props.dishes.map((dish, i) => <li key={i}>{dish}</li>)}
+      </ul>
     </section>
   )
 }
 
-function Footer() {
+function Footer(props) {
 
   return(
-    <footer>I am an incredible footer</footer>
+    <footer>Copyright {props.year}</footer>
   )
 }
 
+const dishes = [
+  "Macaroni and Cheese",
+  "Salmon",
+  "Tofu with Vegetables"
+]
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Content />
-      <Footer />
+      <Header name="Bernie"/>
+      <Content adjective='Amazing' dishes={dishes} />
+      <Footer year={new Date().getFullYear()}/>
     </div>
   );
 }
