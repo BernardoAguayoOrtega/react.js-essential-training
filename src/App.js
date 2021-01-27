@@ -15,7 +15,7 @@ function Content(props) {
     <section>
       <p>We serve the most {props.adjective} food around.</p>
       <ul style={{textAlign: "left"}}>
-        {props.dishes.map((dish, i) => <li key={i}>{dish}</li>)}
+        {props.dishes.map((dish) => <li key={dish.index}>{dish.dish}</li>)}
       </ul>
     </section>
   )
@@ -34,11 +34,15 @@ const dishes = [
   "Tofu with Vegetables"
 ]
 
+const dishesObjects = dishes.map((dish, index) => ({dish, index}))
+
+console.log(dishesObjects)
+
 function App() {
   return (
     <div className="App">
       <Header name="Bernie"/>
-      <Content adjective='Amazing' dishes={dishes} />
+      <Content adjective='Amazing' dishes={dishesObjects} />
       <Footer year={new Date().getFullYear()}/>
     </div>
   );
