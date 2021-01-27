@@ -3,9 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App'
 
-const daysOfWeek = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
+function AppTwo() {
+  return <h1>This is the second app</h1>
+}
 
 ReactDOM.render(
-  <App />,
+  <>
+  <App />
+  <AppTwo />
+  </>,
   document.getElementById('root')
 );
