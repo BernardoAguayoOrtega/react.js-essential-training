@@ -8,12 +8,8 @@ function RegularComponent() {
 	return <h1>Everybody can see this</h1>;
 }
 
-function App(props) {
-	if (props.authorized) {
-    return <SecretComponent />
-	} else {
-    return <RegularComponent />
-  }
+function App({authorized}) {
+	return <>{authorized ? <SecretComponent /> : <RegularComponent />}</>;
 }
 
 export default App;
