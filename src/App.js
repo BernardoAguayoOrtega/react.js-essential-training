@@ -1,15 +1,19 @@
+import { useState, useEffect } from 'react';
 import './App.css';
 
-function SecretComponent() {
-	return <h1>Secret Information</h1>;
-}
+export default function App() {
+	const [emotion, setEmotion] = useState('happy');
 
-function RegularComponent() {
-	return <h1>Everybody can see this</h1>;
-}
+	const handleOnClick = () => setEmotion('frustrate');
+	
+	useEffect(() => {
+		console.log(`It's ${emotion} around here`)
+	});
 
-function App({authorized}) {
-	return <>{authorized ? <SecretComponent /> : <RegularComponent />}</>;
+	return (
+		<>
+			<h1>Current emotion is {emotion}.</h1>
+			<button onClick={handleOnClick}>Frustrate</button>
+		</>
+	);
 }
-
-export default App;
