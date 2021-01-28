@@ -8,7 +8,7 @@ export default function App() {
 	
 	useEffect(() => {
 		console.log(`It's ${emotion} around here`)
-	});
+	}, []);
 
 	return (
 		<>
