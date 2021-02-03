@@ -1,19 +1,20 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 
+//https://api.github.com/users/BernardoAguayoOrtega
+
 export default function App() {
-	const [emotion, setEmotion] = useState('happy');
+	const [data, setData] = useState(null);
 
-	const handleOnClick = () => setEmotion('frustrate');
-	
 	useEffect(() => {
-		console.log(`It's ${emotion} around here`)
-	}, []);
+		fetch('https://api.github.com/users/BernardoAguayoOrtega')
+			.then((response) => response.json())
+			.then(setData);
+	});
+	
+	if (data) {
+		return <div>we have data</div>
+	}
 
-	return (
-		<>
-			<h1>Current emotion is {emotion}.</h1>
-			<button onClick={handleOnClick}>Frustrate</button>
-		</>
-	);
+	return <>we do not have data</>;
 }
